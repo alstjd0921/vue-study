@@ -13,3 +13,19 @@ Vue의 디렉티브를 이용해 다음과 같은 작업을 하는 방법을 알
 ### 범위
 
 v-for 디렉티브는 정수를 받는 것이 가능하다. 리스트나 객체 대신 정수가 전달되면 템플릿이 이를 반복한다. (파이썬의 for in range 같은 느낌)
+
+### 배열
+
+#### 배열 순회
+
+아래는 v-for array traversal.html 코드의 일부이다.
+
+```html
+<ul class="list-group">
+  <li class="list-group-item" v-for="story in stories">
+    Someone said "{{ story }}"
+  </li>
+</ul>
+```
+
+'item in array' 형태의 구문을 확인할 수 있다.
