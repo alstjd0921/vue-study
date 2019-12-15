@@ -42,7 +42,7 @@ v-for 디렉티브는 정수를 받는 것이 가능하다. 리스트나 객체 
 
 ### 객체 프로퍼티 순회
 
-객체의 프로퍼티를 순회할 때도 v-for을 사용할 수 있다. 아래는 v-for property traversal.html 코드의 일부이다.
+객체의 프로퍼티를 순회할 때도 v-for을 사용할 수 있다. 아래는 [v-for property traversal.html](https://github.com/alstjd0921/vue-study/blob/master/VueStudy02%20(List%20rendering)/v-for%20property%20traversal/v-for%20property%20traversal.html) 코드의 일부이다.
 
 ```html
 <ul class="list-group">
