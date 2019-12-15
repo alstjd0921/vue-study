@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    />
+    <title>v-for array traversal</title>
+  </head>
+  <body>
+    <div class="container" id="app">
+      <h1>Let's hear some stories</h1>
+      <ul class="list-group">
+        <li class="list-group-item" v-for="(value, key, index) in story">
+          {{index}} : {{key}} : {{ value }}
+        </li>
+      </ul>
+      <pre>{{ $data }}</pre>
+    </div>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        story: {
+          plot: "I wish!",
+          writer: "MSW",
+          upvotes: 77
+        }
+      }
+    });
+  </script>
+</html>
