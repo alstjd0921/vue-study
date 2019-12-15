@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title>v-else example</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1 v-if="!message">You must send a message for help!</h1>
+      <h2 v-else>You have sent a message!</h2>
+      <textarea v-model="message"></textarea>
+      <button v-show="message">Send company for help!</button>
+    </div>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        message: "I dont wanna be Gozol Mipeel baeksoo!"
+      }
+    });
+  </script>
+</html>
