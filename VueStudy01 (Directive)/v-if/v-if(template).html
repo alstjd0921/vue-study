@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title>v-if example</title>
+  </head>
+  <body>
+    <div id="app">
+      <template v-if="!message">
+        <h1>You must send a message for help!</h1>
+        <p>Dispatch a messenger immediately!</p>
+      </template>
+      <textarea v-model="message"></textarea>
+      <button v-if="message">Send to company for help!</button>
+      <pre>{{ $data }}</pre>
+    </div>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        message: ""
+      }
+    });
+  </script>
+</html>
