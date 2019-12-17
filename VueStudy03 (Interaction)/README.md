@@ -17,7 +17,7 @@ Vue에선 이벤트를 감지할 때 v-on 디렉티브를 사용한다. 이벤�
 
 ### 인라인 이벤트 핸들링
 
-아래는 vote counter.html 코드의 일부이다.
+아래는 [vote counter.html](<https://github.com/alstjd0921/vue-study/blob/master/VueStudy03%20(Interaction)/vote%20counter/vote%20counter.html>) 코드의 일부이다.
 
 ```html
 <button v-on:click="upvotes++" class="btn btn-default">
@@ -47,7 +47,7 @@ methods: { upvote: function() { this.upvotes++; } } ```
 
 ## 이벤트 수식어
 
-아래는 calculator.html의 일부이다.
+아래는 [calculator.html](<https://github.com/alstjd0921/vue-study/blob/master/VueStudy03%20(Interaction)/Calculator/calculator.html>)의 일부이다.
 
 ```html
 <button type="submit" v-on:click.prevent="calculate" class="btn btn-primary">
@@ -99,7 +99,7 @@ computed 속성이란 다른 요인에 따라 값이 바뀌는 변수로, 객체
 
 Vue에서는 Vue 인스턴스 안의 computed 객체에 computed 속성을 정의한다.
 
-아래는 computed.html의 일부이다.
+아래는 [computed.html](<https://github.com/alstjd0921/vue-study/blob/master/VueStudy03%20(Interaction)/computed%20property/computed.html>)의 일부이다.
 
 ```javascript
 new Vue({
@@ -130,6 +130,6 @@ new Vue({
 });
 ```
 
-calculate.html에서 메서드 안에 있는 것들을 computed 속성 c로 옮기는 작업과 버튼을 제거하는 작업밖에 하지 않았다.
+[calculator.html](<https://github.com/alstjd0921/vue-study/blob/master/VueStudy03%20(Interaction)/Calculator/calculator.html>)에서 메서드 안에 있는 것들을 computed 속성 c로 옮기는 작업과 버튼을 제거하는 작업밖에 하지 않았다.
 
 의존하는 요소가 변경될 때마다 값이 다시 평가되는 특징 덕분에 버튼이나 이벤트, 그 어떤 것도 필요하지 않다.
