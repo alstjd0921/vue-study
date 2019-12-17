@@ -6,32 +6,23 @@
       integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
       crossorigin="anonymous"
     />
-    <title>Calculator</title>
+    <title>computed calculator</title>
   </head>
   <body>
     <div class="container" id="app">
-      <h1>Type 2 numbers and choose operation.</h1>
+      <h1>Enter 2 numbers to calculate their sum.</h1>
       <form class="form-inline">
-        <input v-model.number="a" v-on:keyup.enter class="form-control" />
+        <input v-model.number="a" class="form-control" />
         <select v-model="operator" class="form-control">
           <option>+</option>
           <option>-</option>
           <option>*</option>
           <option>/</option>
         </select>
-        <input v-model.number="b" v-on:keyup.enter class="form-control" />
-        <button
-          type="submit"
-          v-on:click.prevent="calculate"
-          class="btn btn-primary"
-        >
-          Calculate
-        </button>
+        <input v-model.number="b" class="form-control" />
       </form>
       <h2>Result: {{ a }} {{ operator }} {{ b }} = {{ c }}</h2>
-      <pre>
-        {{ $data }}
-      </pre>
+      <pre>{{ $data }}</pre>
     </div>
   </body>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -39,25 +30,24 @@
     new Vue({
       el: "#app",
       data: {
-        a: 0,
-        b: 0,
-        c: null,
+        a: 1,
+        b: 1,
         operator: "+"
       },
-      methods: {
-        calculate: function(event) {
+      computed: {
+        c: function() {
           switch (this.operator) {
             case "+":
-              this.c = this.a + this.b;
+              return (this.c = this.a + this.b);
               break;
             case "-":
-              this.c = this.a - this.b;
+              return (this.c = this.a - this.b);
               break;
             case "*":
-              this.c = this.a * this.b;
+              return (this.c = this.a * this.b);
               break;
             case "/":
-              this.c = this.a / this.b;
+              return (this.c = this.a / this.b);
               break;
           }
         }

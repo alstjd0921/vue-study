@@ -66,3 +66,70 @@ Vue에서는 이벤트에 대한 기본 동작을 방지하기 위해 v-on에 �
 - .self
 - .once
 - .passive
+
+## 키 수식어
+
+폼에 버튼이 없거나 버튼이 전혀 없어야 경우에는 키보드 이벤트를 감지하는 방법도 있다.
+
+키보드 이벤트를 감지해야하면 필연적으로 키 코드를 자주 확인하게 될 것이다.  
+예를 들어 엔터의 키 코드는 13이다. 엔터를 감지하기 위해선 아래와 같이 작성해야 할 것이다.
+
+```html
+<input v-model="a" v-on:keyup.13="calculate" />
+```
+
+아스키코드 전부 외우고 다니는 사람 흔치 않듯이 키 코드를 전부 외우고 다니는 변태는 많지 않을 것이다. Vue는 일반적으로 많이 사용하는 키의 별칭을 제공한다.
+
+- enter
+- tab
+- delete
+- esc
+- space
+- up
+- down
+- left
+- right
+
+## computed 속성
+
+Vue의 인라인 표현식은 편리하지만 로직이 복잡해지면 코드를 읽기 힘들어질 것이다. 이때 computed 속성을 사용하여 해결할 수 있다.
+
+computed 속성이란 다른 요인에 따라 값이 바뀌는 변수로, 객체 속성으로 사용할 수 있는 함수처럼 작동한다.  
+단, computed 속성은 의존하는 요소가 변경될 때마다 값이 다시 평가되는 차이점이 있다.
+
+Vue에서는 Vue 인스턴스 안의 computed 객체에 computed 속성을 정의한다.
+
+아래는 computed.html의 일부이다.
+
+```javascript
+new Vue({
+  el: "#app",
+  data: {
+    a: 1,
+    b: 1,
+    operator: "+"
+  },
+  computed: {
+    c: function() {
+      switch (this.operator) {
+        case "+":
+          return (this.c = this.a + this.b);
+          break;
+        case "-":
+          return (this.c = this.a - this.b);
+          break;
+        case "*":
+          return (this.c = this.a * this.b);
+          break;
+        case "/":
+          return (this.c = this.a / this.b);
+          break;
+      }
+    }
+  }
+});
+```
+
+calculate.html에서 메서드 안에 있는 것들을 computed 속성 c로 옮기는 작업과 버튼을 제거하는 작업밖에 하지 않았다.
+
+의존하는 요소가 변경될 때마다 값이 다시 평가되는 특징 덕분에 버튼이나 이벤트, 그 어떤 것도 필요하지 않다.
