@@ -37,10 +37,32 @@ Vue에선 이벤트를 감지할 때 v-on 디렉티브를 사용한다. 이벤�
 methods: { upvote: function() { this.upvotes++; } } ```
 ````
 
-그리고 그냥 그 메서드에 클릭 이벤트 리스너를 바인딩했더니 앞의 것과 동일하게 동작하는것을 확인할 수 있었다.
+그리고 그냥 그 메서드에 클릭 이벤트 리스너를 바인딩했더니 앞의 경우와 동일하게 동작하는것을 확인할 수 있었다.
 
 ```html
 <button v-on:click="upvote" class="btn btn-default">
   Upvote! {{ upvotes }}
 </button>
 ```
+
+## 이벤트 수식어
+
+아래는 calculator.html의 일부이다.
+
+```html
+<button type="submit" v-on:click.prevent="calculate" class="btn btn-primary">
+  Calculate
+</button>
+```
+
+v-on뒤에 붙은 **.prevent**가 이벤트 수식어이며 onsubmit 이벤트의 기본 동작을 취소하는 역할을 해준다.  
+이를 제거하고 버튼을 누르면 계산을 수행하는 대신 폼을 제출하고 페이지가 다시 로드되기만 할 것이다.
+
+Vue에서는 이벤트에 대한 기본 동작을 방지하기 위해 v-on에 대해 6가지 이벤트 수식어를 제공한다. 수식어는 점으로 표시된 접미사이다.
+
+- .stop
+- .prevent
+- .capture
+- .self
+- .once
+- .passive
