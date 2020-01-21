@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    />
+    <title>Filtering example</title>
+  </head>
+  <body>
+    <div class="container" id="app">
+      <h1>Filtering example</h1>
+      <div class="form-group">
+        <label for="query">
+          Search
+        </label>
+        <input v-model="query" class="form-control" />
+      </div>
+      <ul class="list-group">
+        <li v-for="el in search" class="list-group-item">
+          {{ el.string }}
+        </li>
+      </ul>
+      <pre>{{ $data }}</pre>
+    </div>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        table: [
+          { string: "hi", show: "1", cnt: 21 },
+          { string: "hello", show: "2", cnt: 10 },
+          { string: "hello vue", show: "1", cnt: 16 },
+          { string: "html", show: "2", cnt: 40 },
+          { string: "hi react", show: "2", cnt: 29 },
+          { string: "frontend", show: "asdfadsf", cnt: 33 }
+        ],
+        query: ''
+      },
+      computed: {
+        search: function() {
+          let query = this.query;
+          return this.table.filter(function(el) {
+            return el.string.includes(query);
+          });
+        }
+      }
+    });
+  </script>
+</html>
